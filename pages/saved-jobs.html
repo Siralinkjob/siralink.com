@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Saved Jobs - SiraLink</title>
+
+<link rel="stylesheet" href="../assets/css/main.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+padding-bottom:90px;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.header h1{
+font-size:24px;
+}
+
+.header p{
+margin-top:5px;
+opacity:.9;
+}
+
+.container{
+padding:15px;
+}
+
+.job-card{
+background:white;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.company{
+font-size:13px;
+color:#666;
+margin-bottom:5px;
+}
+
+.job-title{
+font-size:20px;
+font-weight:bold;
+color:#222;
+margin-bottom:10px;
+}
+
+.details{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:15px;
+}
+
+.tag{
+background:#eef4ff;
+color:#0A3D91;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+}
+
+.actions{
+display:flex;
+gap:10px;
+}
+
+.btn{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.apply-btn{
+background:#0A3D91;
+color:white;
+}
+
+.remove-btn{
+background:#f1f1f1;
+color:#444;
+}
+
+.empty-state{
+display:none;
+text-align:center;
+padding:50px 20px;
+color:#777;
+}
+
+.empty-state h2{
+margin-bottom:10px;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+box-shadow:0 -2px 10px rgba(0,0,0,.1);
+}
+
+.bottom-nav a{
+text-decoration:none;
+color:#0A3D91;
+font-size:14px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>💾 Saved Jobs</h1>
+<p>Your bookmarked opportunities</p>
+</div>
+
+<div class="container" id="jobsContainer">
+
+<div class="job-card">
+
+<div class="company">Ethio Telecom</div>
+
+<div class="job-title">
+Software Engineer
+</div>
+
+<div class="details">
+<span class="tag">Full Time</span>
+<span class="tag">Addis Ababa</span>
+<span class="tag">IT</span>
+</div>
+
+<div class="actions">
+<button class="btn apply-btn">
+Apply
+</button>
+
+<button class="btn remove-btn remove-job">
+Remove
+</button>
+</div>
+
+</div>
+
+<div class="job-card">
+
+<div class="company">Commercial Bank of Ethiopia</div>
+
+<div class="job-title">
+System Administrator
+</div>
+
+<div class="details">
+<span class="tag">Full Time</span>
+<span class="tag">Addis Ababa</span>
+<span class="tag">Technology</span>
+</div>
+
+<div class="actions">
+<button class="btn apply-btn">
+Apply
+</button>
+
+<button class="btn remove-btn remove-job">
+Remove
+</button>
+</div>
+
+</div>
+
+</div>
+
+<div class="empty-state" id="emptyState">
+
+<h2>No Saved Jobs</h2>
+
+<p>
+You haven't saved any jobs yet.
+</p>
+
+</div>
+
+<div class="bottom-nav">
+
+<a href="home.html">Home</a>
+
+<a href="jobs.html">Jobs</a>
+
+<a href="saved-jobs.html">Saved</a>
+
+<a href="profile.html">Profile</a>
+
+</div>
+
+<script>
+
+const removeButtons =
+document.querySelectorAll(".remove-job");
+
+removeButtons.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+button
+.closest(".job-card")
+.remove();
+
+const jobs =
+document.querySelectorAll(".job-card");
+
+if(jobs.length===0){
+
+document.getElementById(
+"emptyState"
+).style.display="block";
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
